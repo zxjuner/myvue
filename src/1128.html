@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue 模板语法</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <span id="vonce" v-once>Message: {{Message}}</span>
+
+    <p>Using v-html directive: <span class="rawhtml" v-html="rawHtml"></span> </p>
+    <script>
+        var vm = new Vue({
+            el: '#vonce',
+            data: {
+                Message: 'hello'
+            }
+        })
+        vm.Message = 'hi' //不生效
+
+        var vm1 = new Vue({
+            el: '.rawhtml',
+            data: {
+                rawHtml:'<span style="color:red">this should be red.</span>'
+            }
+        })
+    </script>
+</body>
+</html>
