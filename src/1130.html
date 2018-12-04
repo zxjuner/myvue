@@ -11,6 +11,8 @@
     <div class="static" v-bind:class="{active: isActive, 'text-danger': hasError}">0</div>
     <div class="static1" v-bind:class="classObject">1</div>
     <div class="static2" v-bind:class="classObject">2</div>
+    <div class="static3" v-bind:class="[activeClass, errorClass]">3</div>
+    <div class="static4" v-bind:style="styleObject">4</div>
 
     <script>
         var vm = new Vue({
@@ -41,6 +43,22 @@
                         active: this.isActive && this.error,
                         'text-danger': this.error && this.error.type === 'fatal'
                     }
+                }
+            }
+        })
+        var vm3 = new Vue({
+            el: '.static3',
+            data: {
+                activeClass: 'active',
+                errorClass: 'text-danger'
+            }
+        })
+        var vm4 = new Vue({
+            el: '.static4',
+            data: {
+                styleObject: {
+                    color: 'red',
+                    fontSize: '14px'
                 }
             }
         })
